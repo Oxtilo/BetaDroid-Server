@@ -1,0 +1,33 @@
+!!! Strict
+%html
+  %head
+    %title= ENV["APP_NAME"]
+    %link{href: "http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700", rel: "stylesheet", type: "text/css"}/
+    = stylesheet_link_tag 'semantic', 'application'
+    = javascript_include_tag 'jquery', 'semantic', 'application'
+    = yield_content :include
+  %body
+    .ui.grid
+      .row
+        .column
+          - if logged_in?
+            .ui.secondary.pointing.menu
+              %a.active.item
+                %i.home.icon
+                Application
+              - if admin?
+                %a.item
+                  %i.upload.icon
+                  Upload next version
+                %a.item
+                  %i.users.icon
+                  Testers
+              .right.menu
+                %a.ui.item{ href: url_for(:auth, :logout) }
+                  Logout
+          %h2.ui.header
+            %i.bug.icon
+            .content
+              = ENV["APP_NAME"]
+              .sub.header= ENV["APP_DESCRIPTION"]
+    = yield

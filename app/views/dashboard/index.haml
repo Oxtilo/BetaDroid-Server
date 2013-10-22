@@ -1,0 +1,15 @@
+- if current_user.accepted?
+  .ui.two.column.middle.aligned.relaxed.grid.basic.segment
+    .column.center.aligned
+      %a.positive.ui.button.labeled.icon{ href: "#" } 
+        %i.download.icon
+        Download update app
+    .ui.vertical.divider
+      next
+    .center.aligned.column
+      = image_tag "https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl=Hello%20world"
+      %p Scan this QR Code
+- else
+  .ui.one.column.middle.aligned.relaxed.grid.basic.segment
+    .column.center.aligned
+      %p Your account is not accepted for beta testing!
