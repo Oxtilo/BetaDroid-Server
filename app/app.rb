@@ -8,6 +8,10 @@ module BetaDroid
 
     enable :sessions
 
+    def set_tab(name)
+      @current_tab = name.to_sym
+    end
+
     def current_user
       @current_user ||= User.where(id: session[:user_id]).first
     end
@@ -20,7 +24,7 @@ module BetaDroid
       logged_in? && current_user.admin?
     end
 
-    def admin_required?
+    def admin_required!
       redirect_to "/" unless admin?
     end
 

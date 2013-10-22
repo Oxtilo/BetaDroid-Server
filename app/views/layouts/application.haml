@@ -12,14 +12,14 @@
         .column
           - if logged_in?
             .ui.secondary.pointing.menu
-              %a.active.item
+              %a.item{ href: "/", class: @current_tab == :dashboard ? "active" : nil }
                 %i.home.icon
                 Application
               - if admin?
-                %a.item
+                %a.item{ href: "/", class: @current_tab == :upload ? "active" : nil }
                   %i.upload.icon
                   Upload next version
-                %a.item
+                %a.item{ href: url_for(:users, :index), class: @current_tab == :users ? "active" : nil }
                   %i.users.icon
                   Testers
               .right.menu

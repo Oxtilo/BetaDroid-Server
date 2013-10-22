@@ -1,0 +1,18 @@
+.ui.grid.one.margin_top_20
+  .column
+    .ui.active.inverted.dimmer
+      .ui.text.loader Loading
+    %table.ui.sortable.table.segment
+      %thead
+        %tr
+          %th Name
+          %th Status
+          %th E-Mail
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.name
+            %td.user_status{ data: { accepted: user.accepted? ? 1 : 0 } }
+              %a.ui.red.button.mini.cancel{ href: url_for(:users, :cancel, id: user.id) } Cancel
+              %a.ui.green.button.mini.accept{ href:  url_for(:users, :accept, id: user.id) } Accept
+            %td= user.email
