@@ -16,9 +16,12 @@
                 %i.home.icon
                 Application
               - if admin?
-                %a.item{ href: "/", class: @current_tab == :upload ? "active" : nil }
+                %a.item{ href: url_for(:releases, :upload), class: @current_tab == :upload ? "active" : nil }
                   %i.upload.icon
                   Upload next version
+                %a.item{ href: url_for(:releases, :index), class: @current_tab == :releases ? "active" : nil }
+                  %i.android.icon
+                  Releases
                 %a.item{ href: url_for(:users, :index), class: @current_tab == :users ? "active" : nil }
                   %i.users.icon
                   Testers

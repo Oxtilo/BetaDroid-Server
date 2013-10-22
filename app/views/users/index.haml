@@ -13,6 +13,7 @@
           %tr
             %td= user.name
             %td.user_status{ data: { accepted: user.accepted? ? 1 : 0 } }
-              %a.ui.red.button.mini.cancel{ href: url_for(:users, :cancel, id: user.id) } Cancel
-              %a.ui.green.button.mini.accept{ href:  url_for(:users, :accept, id: user.id) } Accept
+              - unless user.admin?
+                %a.ui.red.button.mini.cancel{ href: url_for(:users, :cancel, id: user.id) } Cancel
+                %a.ui.green.button.mini.accept{ href:  url_for(:users, :accept, id: user.id) } Accept
             %td= user.email

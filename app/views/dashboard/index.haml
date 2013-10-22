@@ -9,6 +9,39 @@
     .center.aligned.column
       = image_tag "https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl=Hello%20world"
       %p Scan this QR Code
+  - if @current_release
+    .ui.horizontal.icon.divider
+      %i.circular.android.icon
+    .ui.two.column.grid
+      .column
+        .ui.piled.segment
+          .ui.divided.list
+            .item
+              = image_tag "/icons/#{@current_release.id}.png"
+              .content
+                .header= @current_release.name
+                = @current_release.package
+              .list
+                .item
+                  %i.info.outline.icon
+                  .content
+                    %a.header Version
+                    .description= @current_release.version_code
+                .item
+                  %i.time.outline.icon
+                  .content
+                    %a.header Build time
+                    .description= @current_release.build_time
+                .item
+                  %i.tag.icon
+                  .content
+                    %a.header Size
+                    .description= number_to_human_size @current_release.size
+      .column
+        %ul
+          - @current_release.permissions.each do |permission|
+            %li= permission
+          
 - else
   .ui.one.column.middle.aligned.relaxed.grid.basic.segment
     .column.center.aligned

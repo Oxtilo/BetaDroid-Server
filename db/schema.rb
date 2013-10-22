@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 1) do
+ActiveRecord::Schema.define(:version => 2) do
+
+  create_table "releases", :force => true do |t|
+    t.datetime "build_time"
+    t.integer  "size"
+    t.text     "permissions"
+    t.string   "package"
+    t.integer  "version_code"
+    t.string   "version_name"
+    t.string   "name"
+    t.integer  "downloads",    :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.integer  "uid"
