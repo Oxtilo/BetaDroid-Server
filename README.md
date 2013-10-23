@@ -3,8 +3,11 @@ BetaDroid Server
 
 ![Web](https://raw.github.com/Oxtilo/BetaDroid-Server/master/doc/web.png)
 
-Painless over-the-air app distribution to your testers web backend for https://play.google.com/store/apps/details?id=developer.macbury.betadroid
-![Android](https://raw.github.com/Oxtilo/BetaDroid-Server/master/doc/android.png)
+Painless over-the-air app distribution to your testers web backend.
+
+[
+  ![Android app on Google Play](https://developer.android.com/images/brand/en_app_rgb_wo_45.png)
+](https://play.google.com/store/apps/details?id=developer.macbury.betadroid )
 
 Setup
 ================
