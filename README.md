@@ -1,7 +1,11 @@
 BetaDroid Server
 ================
 
+![Web](https://raw.github.com/Oxtilo/BetaDroid-Server/master/doc/web.png)
+
 Painless over-the-air app distribution to your testers web backend for https://play.google.com/store/apps/details?id=developer.macbury.betadroid
+![Android](https://raw.github.com/Oxtilo/BetaDroid-Server/master/doc/android.png)
+
 Setup
 ================
 Install ruby 1.9.3 on your system and clone application:
