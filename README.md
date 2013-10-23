@@ -18,11 +18,11 @@ cd BetaDroid-Server
 ```
 Create config file .env with content:
 ```
-GOOGLE_KEY=test-ui5osm6ga4cvlseh0kcp3gdan0hphtfb.apps.googleusercontent.com
-GOOGLE_SECRET=jtpHpvuUtqtest
-ADMIN_EMAIL=macbury@gmail.com
-APP_NAME=Poke
-APP_DESCRIPTION=App description
+GOOGLE_KEY=google-oauth-key-here
+GOOGLE_SECRET=google-oauth-secret-here
+ADMIN_EMAIL=admin@email.here
+APP_NAME=app-name-to-display
+APP_DESCRIPTION=short-app-description
 ```
 
 Create credentials in https://code.google.com/apis/console/ for oauth google plus login and place it in .env file for key GOOGLE_KEY and GOOGLE_SECRET. Callback url will be pointing to /auth/google_oauth2/callback path.
