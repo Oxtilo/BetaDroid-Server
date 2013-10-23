@@ -1,0 +1,11 @@
+.ui.grid.one.margin_top_20
+  .column
+    .ui.segment
+      .ui.attached.top.label
+        %span.title Check for updates from my application
+      %pre 
+        = preserve do
+          :escaped
+            Intent intent = new Intent();
+            intent.setAction("developer.macbury.betadroid.action.CHECK_FOR_UPDATE");
+            sendBroadcast(intent);

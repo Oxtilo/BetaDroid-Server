@@ -14,7 +14,7 @@ BetaDroid::App.controllers :auth do
   end
 
   get :logout do
-    session[:user_id] = nil
+    session.clear
     redirect_to("/")
   end
 end

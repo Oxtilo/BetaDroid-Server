@@ -13,13 +13,14 @@ $(document).ready(function() {
     update_status_for($(this));
   });
   $('.user_status a').click(function() {
+    var timestamp = new Date() * 1;
     var status = $(this).parents('.user_status');
     if (status.data("accepted") == 1) {
       status.data("accepted", 0);
     } else {
       status.data("accepted", 1);
     }
-    $.get($(this).attr("href"), function() {
+    $.get($(this).attr("href") + "&timestamp=" + timestamp, function() {
       update_status_for(status);
     });
     return false;

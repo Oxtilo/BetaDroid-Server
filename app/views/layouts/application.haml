@@ -25,6 +25,9 @@
                 %a.item{ href: url_for(:users, :index), class: @current_tab == :users ? "active" : nil }
                   %i.users.icon
                   Testers
+                %a.item{ href: url_for(:help, :index), class: @current_tab == :help ? "active" : nil }
+                  %i.info.icon
+                  App integration
               .right.menu
                 %a.ui.item{ href: url_for(:auth, :logout) }
                   Logout

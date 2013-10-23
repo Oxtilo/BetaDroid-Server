@@ -2,12 +2,14 @@ BetaDroid::App.controllers :feed do
   before { @current_user = User.where(access_token: params[:token]).first }
   before { @current_release = Release.order("version_code DESC").first }
 
-  get :index, map: "/feed/:token" do
+  get :index, map: "/feed/:token", provides: [:json] do
+    content_type :json
     if @current_user && @current_user.accepted?
       if @current_release
         { 
           status: "NEW_RELEASE", 
           release: {
+            name:         @current_release.name,
             version_code: @current_release.version_code,
             package:      @current_release.package,
             build_time:   @current_release.build_time,
@@ -31,3 +33,4 @@ BetaDroid::App.controllers :feed do
     end
   end
 end
+  

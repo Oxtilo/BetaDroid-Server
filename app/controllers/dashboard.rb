@@ -8,3 +8,4 @@ BetaDroid::App.controllers :dashboard do
   end
 
 end
+    

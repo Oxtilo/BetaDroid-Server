@@ -1,13 +1,13 @@
 - if current_user.accepted?
   .ui.two.column.middle.aligned.relaxed.grid.basic.segment
     .column.center.aligned
-      %a.positive.ui.button.labeled.icon{ href: "#" } 
+      %a.positive.ui.button.labeled.icon{ href: "https://play.google.com/store/apps/details?id=developer.macbury.betadroid", target: "_blank" } 
         %i.download.icon
         Download update app
     .ui.vertical.divider
       next
     .center.aligned.column
-      = image_tag "https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl="+File.join(request.base_url, url_for(:feed, :index, token: current_user.access_token))
+      = image_tag "https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl="+{ url: File.join(request.base_url, url_for(:feed, :index, token: current_user.access_token)), api_version: BetaDroid::App::API_VERSION }.to_json
       %p Scan this QR Code
   - if @current_release
     .ui.horizontal.icon.divider

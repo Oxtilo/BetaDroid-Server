@@ -1,5 +1,6 @@
 module BetaDroid
   class App < Padrino::Application
+    API_VERSION = 1
     #use Rack::Session::Cookie
     use ActiveRecord::ConnectionAdapters::ConnectionManagement
     register Padrino::Rendering
