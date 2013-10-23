@@ -1,7 +1,7 @@
 BetaDroid::App.controllers :releases do
   before { admin_required! }
   before { set_tab :releases }
-  
+
   get :index do
     @releases = Release.order("version_code DESC").all
 

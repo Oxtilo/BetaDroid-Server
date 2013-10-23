@@ -8,6 +8,10 @@ module BetaDroid
 
     enable :sessions
 
+    def base_url
+      @base_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+    end
+    
     def set_tab(name)
       @current_tab = name.to_sym
     end

@@ -7,7 +7,7 @@
     .ui.vertical.divider
       next
     .center.aligned.column
-      = image_tag "https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl=Hello%20world"
+      = image_tag "https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl="+File.join(request.base_url, url_for(:feed, :index, token: current_user.access_token))
       %p Scan this QR Code
   - if @current_release
     .ui.horizontal.icon.divider
