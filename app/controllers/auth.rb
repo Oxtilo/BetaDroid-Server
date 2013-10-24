@@ -10,11 +10,11 @@ BetaDroid::App.controllers :auth do
     @user    = User.new_from_omniauth(omniauth) if @user.nil?
     session[:user_id] = @user.id
 
-    redirect_to("/")
+    redirect_to(url_for(:dashboard, :index, t: Time.now.to_i))
   end
 
   get :logout do
     session.clear
-    redirect_to("/")
+    redirect_to(url_for(:dashboard, :index, t: Time.now.to_i))
   end
 end

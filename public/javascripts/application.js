@@ -8,6 +8,7 @@ var update_status_for = function(element) {
 }
 
 $(document).ready(function() {
+  
   $('.dimmer').hide();
   $('.user_status').each(function() {
     update_status_for($(this));
@@ -25,4 +26,5 @@ $(document).ready(function() {
     });
     return false;
   });
+
 });

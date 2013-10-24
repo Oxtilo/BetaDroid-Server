@@ -3,8 +3,8 @@
   %head
     %title= ENV["APP_NAME"]
     %link{href: "http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700", rel: "stylesheet", type: "text/css"}/
-    = stylesheet_link_tag 'semantic', 'application'
-    = javascript_include_tag 'jquery', 'semantic', 'application'
+    = stylesheet_link_tag 'semantic', 'joyride.css', 'application'
+    = javascript_include_tag 'jquery', 'jquery.cookie.js', 'jquery.joyride.js', 'semantic', 'application'
     = yield_content :include
   %body
     .ui.grid
@@ -25,9 +25,12 @@
                 %a.item{ href: url_for(:users, :index), class: @current_tab == :users ? "active" : nil }
                   %i.users.icon
                   Testers
-                %a.item{ href: url_for(:help, :index), class: @current_tab == :help ? "active" : nil }
-                  %i.info.icon
-                  App integration
+              %a.item{ href: "https://github.com/Oxtilo/BetaDroid-Server", target: "_blank", id:"help_imporve" }
+                %i.github.icon
+                Github
+              %a.item{ href: url_for(:help, :index), class: @current_tab == :help ? "active" : nil }
+                %i.info.icon
+                Help
               .right.menu
                 %a.ui.item{ href: url_for(:auth, :logout) }
                   Logout

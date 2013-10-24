@@ -1,17 +1,17 @@
 - if current_user.accepted?
   .ui.two.column.middle.aligned.relaxed.grid.basic.segment
     .column.center.aligned
-      %a.positive.ui.button.labeled.icon{ href: "https://play.google.com/store/apps/details?id=developer.macbury.betadroid", target: "_blank" } 
+      %a.positive.ui.button.labeled.icon{ href: "https://play.google.com/store/apps/details?id=developer.macbury.betadroid", target: "_blank", id: "download_update_app_page" } 
         %i.download.icon
         Download update app
     .ui.vertical.divider
       next
     .center.aligned.column
-      = image_tag "https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl="+{ url: File.join(request.base_url, url_for(:feed, :index, token: current_user.access_token)), api_version: BetaDroid::App::API_VERSION }.to_json
+      = image_tag "https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl="+{ url: File.join(request.base_url, url_for(:feed, :index, token: current_user.access_token)), api_version: BetaDroid::App::API_VERSION }.to_json, id: "scan_qr_code"
       %p Scan this QR Code
   - if @current_release
     .ui.horizontal.icon.divider
-      %i.circular.android.icon
+      %i.circular.android.icon#icon_update_app
     .ui.two.column.grid
       .column
         .ui.piled.segment
@@ -41,8 +41,27 @@
         %ul
           - @current_release.permissions.each do |permission|
             %li= permission
-          
+
+
 - else
   .ui.one.column.middle.aligned.relaxed.grid.basic.segment
     .column.center.aligned
-      %p Your account is not accepted for beta testing!
+      %p Your account is not accepted for beta testing! Please wait for admin to accept your account!
+
+%ol#tutorial{ style: "display: none" }
+  %li{"data-id" => "download_update_app_page", "data-options" => "tipLocation:right;" } 
+    %p Download BetaDroid to your device
+    %p= image_tag "play.png", style: "width: 100%"
+  %li{"data-id" => "scan_qr_code", "data-options" => "tipLocation:left;" }
+    %p Scan this QR code using BetaDroid
+    %p= image_tag "scan.png", style: "width: 100%"
+  %li{ "data-button" => "Finish" }
+    %p When new update for application will be available it will show in BetaDroid
+    %p= image_tag "download.png", style: "width: 100%"
+:javascript
+  $(window).load(function() {
+    $('#tutorial').joyride({
+      autoStart : true,
+      modal: false
+    });
+  });

@@ -6,8 +6,13 @@ module BetaDroid
     register Padrino::Rendering
     register Padrino::Mailer
     register Padrino::Helpers
-
+    register Padrino::Cache
+    
     enable :sessions
+    disable :caching
+
+    before { expires_in 1 }
+
 
     def base_url
       @base_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
